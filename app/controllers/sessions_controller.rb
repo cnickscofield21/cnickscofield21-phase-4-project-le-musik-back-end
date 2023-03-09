@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   # FIXME: When line is active, 500 server error occurs
-  # skip_before_action :authorized_user, only: [:create]
+  skip_before_action :authorized_user, only: [:create]
 
   def create
     user = User.find_by(username: params[:username])
