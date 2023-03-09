@@ -4,17 +4,23 @@ class ApplicationController < ActionController::API
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
 
   # FIXME: Having these active is breaking things right now
+
+  # When verify_authenticity_token is activated, server
+  # returns 500 Internal Server Error for /login route
   # skip_before_action :verify_authenticity_token
+
+  # When this line is active all authorized_user calls
+  # returns "Not Authorized"
   # before_action :authorized_user
 
-  # def current_user
-  #   user = User.find_by(id:session[:user_id])
-  #   user
-  # end
+  def current_user
+    user = User.find_by(id:session[:user_id])
+    user
+  end
 
-  # def authorized_user
-  #   render json: {error: "Not Authorized"}, status: :unauthorized unless current_user
-  # end
+  def authorized_user
+    render json: {error: "Not Authorized"}, status: :unauthorized unless current_user
+  end
 
   # Error Handling
   def render_unprocessable_entity(invalid)

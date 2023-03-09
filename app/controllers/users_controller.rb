@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[ show update destroy ]
   # TODO: Resolve the show issue below
   # before_action :set_user, only: %i[ show update destroy ]
-  # before_action :set_user, only: %i[ update destroy ]
+  before_action :set_user, only: %i[ update destroy ]
 
   # GET /users
   def index
