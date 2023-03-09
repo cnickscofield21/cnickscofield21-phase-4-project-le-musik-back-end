@@ -9,7 +9,7 @@ class AlbumsController < ApplicationController
 
   # GET /albums/1
   def show
-    render json: @album, status: :ok
+    render json: @album, status: :ok, serializer: AlbumsWithArtistsSerializer
   end
 
   # POST /albums
