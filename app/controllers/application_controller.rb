@@ -10,7 +10,7 @@ class ApplicationController < ActionController::API
   # skip_before_action :verify_authenticity_token
 
   # When this line is active all authorized_user calls
-  # returns "Not Authorized"
+  # returns "Not Authorized". Is it because I cannot properly store cookies in Postman?
   # before_action :authorized_user
 
   def current_user
