@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
-  # FIXME: When line is active, 500 server error occurs
+  # TODO: When line is active, 500 server error occurs.
+  # Seems to have balanced out???
   skip_before_action :authorized_user, only: [:create]
 
   def create
@@ -7,10 +8,8 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      puts "!!!!!!!!!!!    Authenticated    !!!!!!!!!!!"
       render json: user, status: :ok
     else
-      puts "********    Failed    ********"
       render json: {error: "Invalid username and/or password"}, status: :unauthorized
     end
 
@@ -18,7 +17,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session.delete :user_id
-    puts "####    TARGET DESTROYED    ####"
     head :no_content
   end
 

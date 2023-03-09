@@ -40,4 +40,5 @@ class AlbumsController < ApplicationController
     def album_params
       params.permit(:title, :year, :image)
     end
+
 end
