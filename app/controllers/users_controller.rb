@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   # TODO: Resolve the show issue below
   # before_action :set_user, only: %i[ show update destroy ]
   before_action :set_user, only: %i[ update destroy ]
+  skip_before_action :authorized_user, :only => [:create]
 
   # GET /users
   def index
