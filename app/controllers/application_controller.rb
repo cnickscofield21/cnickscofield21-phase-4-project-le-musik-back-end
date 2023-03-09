@@ -11,16 +11,16 @@ class ApplicationController < ActionController::API
 
   # When this line is active all authorized_user calls
   # returns "Not Authorized". Is it because I cannot properly store cookies in Postman?
-  before_action :authorized_user
+  # before_action :authorized_user
 
   def current_user
     user = User.find_by(id:session[:user_id])
     user
   end
 
-  def authorized_user
-    render json: {error: "Not Authorized"}, status: :unauthorized unless current_user
-  end
+  # def authorized_user
+  #   render json: {error: "Not Authorized"}, status: :unauthorized unless current_user
+  # end
 
   # Error Handling
   def render_unprocessable_entity(invalid)
