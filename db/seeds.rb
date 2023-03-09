@@ -1,11 +1,6 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
 puts "Seeding Users"
 User.create(username: "nick", password: "password", admin: true)
 User.create(username: "joey", password: "password", admin: true)
-
 
 puts "Seeding Artists"
 cb = Artist.create(name: "Childish Gambino", image: "childish_gambino.png")
@@ -14,7 +9,6 @@ dp = Artist.create(name: "Daft Punk", image: "daft_punk.png")
 cp = Artist.create(name: "Coldplay", image: "coldplay.png")
 
 puts "Seeding Albums"
-
 bti = Album.create(title: "Because the Internet", year: 2013, image: "because_the_internet.png")
 ts1989 = Album.create(title: "1989", year: 2014, image: "1989.png")
 red = Album.create(title: "Red", year: 2012, image: "red.png")
@@ -107,7 +101,3 @@ Track.create(track: 13, title: "Don't Let It Break Yout Heart", duration: "3:54"
 Track.create(track: 14, title: "Up with the Birds", duration: "3:46", year: 2011, album_id: mx.id, artist_id: cp.id)
 
 puts "Done seeding!"
-# Track.create(track: , title: "", duration: "", year: , album_id: .id, artist_id: .id)
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
