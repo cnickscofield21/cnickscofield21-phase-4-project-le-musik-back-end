@@ -9,13 +9,13 @@ class AlbumsController < ApplicationController
 
   # GET /albums/1
   def show
-    render json: @album, status: :ok, serializer: AlbumsWithArtistsSerializer
+    render json: @album, status: :ok
   end
 
   # POST /albums
   def create
     @album = Album.create!(album_params)
-    render json: @album, status: :created, location: @album
+    render json: @album, status: :created, location: @album, serializer: AlbumsWithArtistsSerializer
   end
 
   # PATCH/PUT /albums/1
